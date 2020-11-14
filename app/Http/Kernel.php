@@ -42,7 +42,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             \Barryvdh\Cors\HandleCors::class,
-            'throttle:120,1',
+            'throttle:' . env('API_THROTTLE_RATE', '120') . ',' . env('API_THROTTLE_TIME', '1'),
             'auth:api',
         ],
     ];
